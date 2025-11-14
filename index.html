@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monthly Habit Tracker PDF - Chhoti Jeet, Badi Consistency 🔥</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', 'Segoe UI', sans-serif;
+        }
+        
+        :root {
+            --primary: #6a11cb;
+            --secondary: #2575fc;
+            --accent: #ff6b6b;
+            --light: #f8f9fa;
+            --dark: #2c3e50;
+            --success: #1dd1a1;
+            --warning: #f9ca24;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header & Hero Section */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 70px 0 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSIvPjwvc3ZnPg==');
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            font-size: 3.2rem;
+            margin-bottom: 20px;
+            font-weight: 800;
+            line-height: 1.2;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .subtitle {
+            font-size: 1.4rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+            font-weight: 500;
+        }
+        
+        .urgency-badge {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            animation: pulse 2s infinite;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .price-container {
+            background-color: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 30px;
+            display: inline-block;
+            margin: 20px auto 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .price {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+        
+        .original-price {
+            text-decoration: line-through;
+            opacity: 0.7;
+            font-size: 1.8rem;
+            margin-right: 15px;
+        }
+        
+        .discount-price {
+            color: var(--warning);
+            text-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        
+        .price-note {
+            font-size: 1.1rem;
+            margin-top: 10px;
+            opacity: 0.9;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--warning);
+            color: var(--dark);
+            padding: 18px 50px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.3rem;
+            margin: 20px 10px 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(255, 221, 64, 0.5);
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 221, 64, 0.7);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid white;
+            color: white;
+            box-shadow: none;
+        }
+        
+        .btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Benefits Section */
+        section {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            color: var(--dark);
+            position: relative;
+            font-weight: 700;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            margin: 20px auto;
+            border-radius: 3px;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .benefit-card {
+            background: white;
+            border-radius: 16px;
+            padding: 40px 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+            border-top: 5px solid var(--primary);
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+        }
+        
+        .benefit-icon {
+            font-size: 3rem;
+            margin-bottom: 25px;
+            display: block;
+        }
+        
+        .benefit-title {
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        /* How It Works */
+        .how-it-works {
+            background-color: #f0f4f8;
+        }
+        
+        .steps-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .step {
+            background: white;
+            border-radius: 16px;
+            padding: 40px 25px;
+            width: 270px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+        
+        .step:hover {
+            transform: translateY(-10px);
+        }
+        
+        .step-number {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.4rem;
+            box-shadow: 0 5px 15px rgba(106, 17, 203, 0.4);
+        }
+        
+        .step h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        /* Payment Section */
+        .payment-section {
+            text-align: center;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+        
+        .payment-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 60px;
+            align-items: center;
+            margin-top: 50px;
+        }
+        
+        .qr-code {
+            background: white;
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .qr-code:hover {
+            transform: scale(1.03);
+        }
+        
+        .qr-code img {
+            max-width: 280px;
+            height: auto;
+            border-radius: 10px;
+        }
+        
+        .payment-info {
+            max-width: 500px;
+            text-align: left;
+        }
+        
+        .payment-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        .payment-steps {
+            list-style: none;
+            margin: 25px 0;
+        }
+        
+        .payment-steps li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            font-size: 1.1rem;
+        }
+        
+        .payment-steps li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .offer-box {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            margin-top: 30px;
+            border-left: 5px solid var(--warning);
+        }
+        
+        .offer-box h4 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+        
+        /* Testimonial */
+        .testimonial {
+            text-align: center;
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+        }
+        
+        .testimonial-content {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.4rem;
+            font-style: italic;
+            line-height: 1.8;
+        }
+        
+        .testimonial-author {
+            margin-top: 30px;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+        
+        /* Guarantee */
+        .guarantee {
+            text-align: center;
+            padding: 80px 0;
+        }
+        
+        .guarantee-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .guarantee-badge {
+            display: inline-block;
+            background: linear-gradient(to right, var(--success), #10ac84);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            font-size: 1.2rem;
+            box-shadow: 0 5px 15px rgba(29, 209, 161, 0.4);
+        }
+        
+        /* Final CTA */
+        .final-cta {
+            background: linear-gradient(135deg, var(--dark) 0%, #1a252f 100%);
+            color: white;
+            text-align: center;
+            padding: 100px 0;
+            border-radius: 20px 20px 0 0;
+            margin-top: 50px;
+        }
+        
+        .final-cta h2 {
+            font-size: 2.8rem;
+            margin-bottom: 30px;
+        }
+        
+        .final-cta p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .payment-container {
+                flex-direction: column;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .price {
+                font-size: 2.5rem;
+            }
+            
+            .btn {
+                padding: 16px 40px;
+                font-size: 1.2rem;
+            }
+        }
+        
+        /* Real Talk Section */
+        .real-talk {
+            background-color: white;
+            border-radius: 16px;
+            padding: 50px;
+            margin: 50px auto;
+            max-width: 900px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            border-left: 5px solid var(--accent);
+        }
+        
+        .real-talk h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        .real-talk p {
+            font-size: 1.3rem;
+            line-height: 1.8;
+        }
+        
+        .counter {
+            background: var(--accent);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            display: inline-block;
+            margin: 20px 0;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Hero Section -->
+    <header>
+        <div class="container">
+            <div class="hero-content">
+                <h1>Monthly Habit Tracker PDF — Chhoti Jeet, Badi Consistency 🔥</h1>
+                <p class="subtitle">Tension mat lo, bas tick karo! Yeh tracker bana hai unke liye jo daily habits build karna chahte hain — chahe study ho, fitness, Quran reading ya self-discipline.</p>
+                
+                <div class="urgency-badge">⚡ Only for first 50 followers!</div>
+                
+                <div class="price-container">
+                    <div class="price">
+                        <span class="original-price">₹70</span>
+                        <span class="discount-price">₹39</span>
+                    </div>
+                    <p class="price-note">New Follower Offer (Limited Time)</p>
+                    <p class="price-note">"Ek chai kam pi lo bhai ☕ — aur apni life upgrade karo!"</p>
+                </div>
+                
+                <a href="#payment" class="btn">Buy Now — Pay ₹39</a>
+                <a href="#how-it-works" class="btn btn-secondary">How It Works</a>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Benefits Section -->
+    <section>
+        <div class="container">
+            <h2 class="section-title">Why You'll Love It</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <span class="benefit-icon">📱</span>
+                    <h3 class="benefit-title">Simple & Print-Ready</h3>
+                    <p>Use phone ya paper dono pe — koi complication nahi!</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <span class="benefit-icon">📈</span>
+                    <h3 class="benefit-title">Daily Tick System</h3>
+                    <p>Streak bana ke rakhne mein madad — consistency automatic!</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <span class="benefit-icon">🏆</span>
+                    <h3 class="benefit-title">Power of Small Wins</h3>
+                    <p>Motivation lose nahi hoti — har din chhoti jeet celebrate karo!</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <span class="benefit-icon">📊</span>
+                    <h3 class="benefit-title">Monthly Progress Report</h3>
+                    <p>End of month me progress report ready — kya improve karna hai pata chalega!</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <span class="benefit-icon">👥</span>
+                    <h3 class="benefit-title">Works for Everything</h3>
+                    <p>Study, exercise, reading, namaz, screen-time control — anything!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Real Talk Section -->
+    <div class="container">
+        <div class="real-talk">
+            <h3>😎 Real Talk</h3>
+            <p>Netflix subscription se bhi sasta — but yeh tumhe better version of yourself banayega.</p>
+            <p>Bas ₹39 me start karo apni consistency journey today.</p>
+            <div class="counter">⚠️ Only for first 50 followers!</div>
+            <p>After that, price will go back to ₹70.<br>👉 Jaldi payment karo aur apna tracker secure karo.</p>
+        </div>
+    </div>
+    
+    <!-- How It Works -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Scan & Pay</h3>
+                    <p>Scan QR aur ₹39 ka payment karo.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Screenshot</h3>
+                    <p>Screenshot lo aur bhejo @yourhandle.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Receive PDF</h3>
+                    <p>2-3 hours me PDF DM me mil jayegi (print ya phone dono pe use kar sakte ho).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Payment Section -->
+    <section id="payment" class="payment-section">
+        <div class="container">
+            <h2 class="section-title">Payment Instructions</h2>
+            <div class="payment-container">
+                <div class="qr-code">
+                    <img src="Qr.jpg" alt="Payment QR Code">
+                </div>
+                
+                <div class="payment-info">
+                    <h3>Niche diye hue QR code se exact amount bhejo.</h3>
+                    <ul class="payment-steps">
+                        <li>Payment screenshot lo.</li>
+                        <li>Screenshot ko Instagram DM mein bhejo: @decode.win
+</li>
+                        <li>Ham 2-3 ghante mein PDF bhej denge — jaldi check karo DM/Email.</li>
+                    </ul>
+                    
+                    <div class="offer-box">
+                        <h4>Offer Details</h4>
+                        <p><strong>Regular Price:</strong> ₹70</p>
+                        <p><strong>New Follower Offer:</strong> ₹39 (limited-time)</p>
+                        <p style="margin-top: 15px; font-style: italic;">Offer sirf new followers ke liye hai — follow karna mat bhoolna!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonial -->
+    <section class="testimonial">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">Trusted by Students</h2>
+            <div class="testimonial-content">
+                "Already 150+ students using this tracker every month to stay consistent and focused. Next ho sakte ho tum 😉"
+            </div>
+            <div class="testimonial-author">- 150+ Satisfied Users</div>
+        </div>
+    </section>
+    
+    <!-- Guarantee -->
+    <section class="guarantee">
+        <div class="container">
+            <div class="guarantee-content">
+                <div class="guarantee-badge">Refund & Support Guarantee</div>
+                <h2 class="section-title">Agar 6 ghante ke andar PDF na mile...</h2>
+                <p style="font-size: 1.3rem; max-width: 700px; margin: 0 auto;">Toh same DM pe message karo — turant resend kar diya jayega. Koi tension nahi!</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <div class="container">
+            <h2>Stop planning, start tracking!</h2>
+            <p>Pay ₹39 via QR, DM screenshot on @decode.win
+, aur 2-3 ghante me apna Monthly Habit Tracker PDF le lo 🔥</p>
+            <a href="#payment" class="btn">Get Your Tracker Now</a>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p>© 2023 Monthly Habit Tracker. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
